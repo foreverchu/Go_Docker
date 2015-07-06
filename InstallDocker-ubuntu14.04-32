@@ -20,15 +20,21 @@ $ sudo service docker start
 
 
 下载镜像 sudo docker pull ubuntu:12.04
+
 创建容器 sudo sudo docker run -t -i ubuntu:12.04 /bin/bash
+-t 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上， -i 则让容器的标准输入保持打开
+
 
 列出镜像 sudo docker images
 
-列出容器 sudo docker docker ps -a
+列出容器 sudo docker ps -a
 
-进入容器 sudo docker attach <container_id>
+进入容器 sudo docker attach <container_id> 只能进入启动到容器，不然需要现启动，再进入
 
-清除容器 sudo docker rm $sudo( docker ps -a -q) 
+清除容器 sudo docker rm $(sudo docker ps -a -q)
+
+
+启动已终止容器： docker start <CONTAINER_ID>
 
 
 
@@ -46,7 +52,7 @@ Docker 仓库
 
 最大的公开仓库是 Docker Hub，存放了数量庞大的镜像供用户下载。 国内的公开仓库包括 Docker Pool 等，可以提供大陆用户更稳定快速的访问。
 
-当然，用户也可以在本地网络内创建一个私有仓库。
+当然，用户也可以在r地网络内创建一个私有仓库。
 
 当用户创建了自己的镜像之后就可以使用 push 命令将它上传到公有或者私有仓库，这样下次在另外一台机器上使用这个镜像时候，只需要从仓库上 pull 下来就可以了。
 
@@ -65,6 +71,11 @@ Docker 镜像就是一个只读的模板。
 镜像可以用来创建 Docker 容器。
 
 Docker 提供了一个很简单的机制来创建镜像或者更新现有的镜像，用户甚至可以直接从其他人那里下载一个已经做好的镜像来直接使用。
+
+*注 : 下载ubuntu 32位镜像 m.blog.csdn.net/blog/zqxnum1/42063521 。 然后执行sudo cat ubuntu-14.04-x86-minimal.tar.gz | sudo docker import - ubuntu  。通过sudo docker images 就能看到了
+
+
+
 
 
 
