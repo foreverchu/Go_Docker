@@ -19,7 +19,7 @@ $ sudo service docker start
 
 
 
-下载镜像 sudo docker pull ubuntu:12.04
+下载镜像 sudo docker pull ubuntu:12.04  该命令实际上相当于 $ sudo docker pull registry.hub.docker.com/ubuntu:12.04 命令，即从注册服务器 registry.hub.docker.com 中的 ubuntu 仓库来下载标记为 12.04 的镜像。
 
 创建容器 sudo sudo docker run -t -i ubuntu:12.04 /bin/bash
 -t 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上， -i 则让容器的标准输入保持打开
@@ -96,6 +96,22 @@ Docker 利用容器来运行应用。
 
 
 
+
+
+---
+
+### 显示镜像信息：
+
+cat /var/lib/docker/repositories |python -mjson.tool
+
+或者docker images
+
+
+---
+
+exit 退出容器
+
+docker start启动关闭的容器
 
 
 
