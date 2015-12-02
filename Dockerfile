@@ -5,4 +5,4 @@ FROM ubuntu
 
 MAINTAINER xuhang <xuhang457381685@163.com>
     
-CMD ["echo", "hello world"]
+CMD ["/bin/bash"]
